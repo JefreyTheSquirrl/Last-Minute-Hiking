@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://b2hitfg75m46b"]
+
+[ext_resource type="Script" uid="uid://badwa2t5nleil" path="res://Code/subway_surfer_game.gd" id="1_wervn"]
+[ext_resource type="PackedScene" uid="uid://di51jntj8nycp" path="res://Scenes/enemy_subway_surfers.tscn" id="2_fuixi"]
+[ext_resource type="Script" uid="uid://b5wcafgdwp562" path="res://Code/player.gd" id="3_dilya"]
+[ext_resource type="Texture2D" uid="uid://dbs871aa6cft8" path="res://icon.svg" id="4_n63uh"]
+
+[sub_resource type="Curve2D" id="Curve2D_fuixi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 25, 29, 0, 0, 0, 0, 224, 29, 0, 0, 0, 0, 25, 29)
+}
+point_count = 3
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4e5nk"]
+size = Vector2(240.155, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txavq"]
+size = Vector2(24, 24)
+
+[node name="SubwaySurferGame" type="ColorRect" unique_id=809947394]
+custom_minimum_size = Vector2(0.045, 0)
+offset_right = 244.0
+offset_bottom = 294.0
+color = Color(0, 0.80784315, 1, 1)
+script = ExtResource("1_wervn")
+Mob = ExtResource("2_fuixi")
+
+[node name="MobPath" type="Path2D" parent="." unique_id=313200542]
+curve = SubResource("Curve2D_fuixi")
+
+[node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath" unique_id=1615280237]
+position = Vector2(25.332214, 29)
+rotation = 3.1415927
+progress = 397.51
+
+[node name="MobTimer" type="Timer" parent="." unique_id=1279312361]
+autostart = true
+
+[node name="KillZone" type="Area2D" parent="." unique_id=268683219 groups=["KillZone"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=2107214067]
+position = Vector2(122.5, 258)
+shape = SubResource("RectangleShape2D_4e5nk")
+
+[node name="Label" type="Label" parent="." unique_id=2073745388]
+layout_mode = 0
+offset_left = 117.0
+offset_top = 35.0
+offset_right = 127.0
+offset_bottom = 58.0
+text = "0"
+
+[node name="Player" type="Area2D" parent="." unique_id=1482757835]
+position = Vector2(121, 213)
+script = ExtResource("3_dilya")
+speed = 300
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=752839200]
+scale = Vector2(0.234375, 0.234375)
+texture = ExtResource("4_n63uh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1931544379]
+shape = SubResource("RectangleShape2D_txavq")
+
+[node name="ScoreTimer" type="Timer" parent="." unique_id=1355468148]
+wait_time = 0.1
+
+[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="area_entered" from="KillZone" to="." method="_on_kill_zone_area_entered"]
+[connection signal="area_entered" from="Player" to="." method="_on_player_area_entered"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

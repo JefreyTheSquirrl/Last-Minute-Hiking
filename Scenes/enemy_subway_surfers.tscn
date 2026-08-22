@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://di51jntj8nycp"]
+
+[ext_resource type="Script" uid="uid://dckuxj2bbwa5u" path="res://Code/enemy_subway_surfers.gd" id="1_ommal"]
+[ext_resource type="Texture2D" uid="uid://dbs871aa6cft8" path="res://icon.svg" id="2_52ch7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4e5nk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_52ch7")
+}],
+"loop": 1,
+"name": &"Eliza",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_52ch7")
+}],
+"loop": 1,
+"name": &"Lamp",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_txavq"]
+size = Vector2(57, 56)
+
+[node name="EnemySubwaySurfers" type="Area2D" unique_id=1226795800]
+script = ExtResource("1_ommal")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1670103885]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_4e5nk")
+animation = &"Eliza"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499551290]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_txavq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

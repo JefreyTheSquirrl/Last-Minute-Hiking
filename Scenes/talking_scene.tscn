@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bdm88o2e34o24"]
+
+[ext_resource type="Texture2D" uid="uid://bujiprtr1d0lm" path="res://Art/Harrow.png" id="1_0lql1"]
+[ext_resource type="Texture2D" uid="uid://csn3quwl25dx8" path="res://Art/Tony.png" id="2_45xcu"]
+[ext_resource type="Script" uid="uid://di40gncyjb0k" path="res://Code/main_text.gd" id="3_ua26s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4e5nk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0lql1")
+}],
+"loop": 1,
+"name": &"Harrow",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_45xcu")
+}],
+"loop": 1,
+"name": &"Tony",
+"speed": 5.0
+}]
+
+[node name="TalkingScene" type="Node2D" unique_id=1790276345]
+script = ExtResource("3_ua26s")
+
+[node name="Character" type="AnimatedSprite2D" parent="." unique_id=1176466698]
+position = Vector2(1002.99994, 434.99997)
+scale = Vector2(0.12, 0.12)
+sprite_frames = SubResource("SpriteFrames_4e5nk")
+animation = &"Tony"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1323452321]
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1503108251]
+color = Color(1, 0.40784314, 0.11764706, 1)
+polygon = PackedVector2Array(186, 269, 125, 436, 224, 561, 794, 549, 856, 286, 607, 250)
+
+[node name="Label" type="Label" parent="Polygon2D" unique_id=1580363437]
+modulate = Color(0.3137255, 1, 0.38431373, 1)
+offset_left = 186.0
+offset_top = 296.0
+offset_right = 804.0
+offset_bottom = 512.0
+text = "..."
