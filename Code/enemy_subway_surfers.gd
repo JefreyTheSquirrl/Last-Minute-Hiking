@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.y += 350 * delta
+	position.y += 330 * delta
 
 
 func _on_area_entered(area: Area2D) -> void:

@@ -26,6 +26,7 @@ animations = [{
 size = Vector2(57, 56)
 
 [node name="EnemySubwaySurfers" type="Area2D" unique_id=1226795800]
+scale = Vector2(0.875, 0.875)
 script = ExtResource("1_ommal")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1670103885]

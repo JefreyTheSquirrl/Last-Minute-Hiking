@@ -3,6 +3,7 @@ extends ColorRect
 @export var Mob: PackedScene
 var score = 0
 var canScore = true
+var startedGame = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,14 +12,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if Global.textProgress == 9 and !startedGame:
+		startedGame = true
+		$MobTimer.start()
 	$Label.text = str(score)
 	gameWin(score)
 
 func gameWin(score):
 	if score == 10:
+		Global.textProgress += 1
 		queue_free()
 
 func _on_mob_timer_timeout() -> void:
+	$MobTimer.start()
 	$MobPath/MobSpawnLocation.set_progress(randi() % 380)
 	var mob = Mob.instantiate()
 	add_child(mob)

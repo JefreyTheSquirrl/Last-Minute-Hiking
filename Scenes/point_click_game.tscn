@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dctolsly4r8uh"]
+
+[ext_resource type="Texture2D" uid="uid://cpq1k0bbo88tx" path="res://Art/BackgroundLevel.png" id="1_5unvv"]
+[ext_resource type="Script" uid="uid://brwtk5owoglgl" path="res://Code/point_click_game.gd" id="2_o54s0"]
+[ext_resource type="Texture2D" uid="uid://dbs871aa6cft8" path="res://icon.svg" id="3_vrhro"]
+
+[node name="PointAndClickGame" type="Sprite2D" unique_id=1479434377]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_5unvv")
+script = ExtResource("2_o54s0")
+metadata/_edit_group_ = true
+
+[node name="Score" type="Label" parent="." unique_id=2073745388]
+offset_left = -5.0000005
+offset_top = -155.35
+offset_right = 4.9999995
+offset_bottom = -132.35
+text = "0"
+
+[node name="Fuchsi" type="TextureButton" parent="." unique_id=1145447144]
+scale = Vector2(0.36, 0.36)
+texture_normal = ExtResource("3_vrhro")
+
+[node name="FuchsiDespawnTimer" type="Timer" parent="." unique_id=873566187]
+wait_time = 1.5
+
+[connection signal="pressed" from="Fuchsi" to="." method="_on_fuchsi_pressed"]
+[connection signal="timeout" from="FuchsiDespawnTimer" to="." method="_on_fox_despawn_timer_timeout"]

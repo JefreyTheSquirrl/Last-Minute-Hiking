@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bujiprtr1d0lm" path="res://Art/Harrow.png" id="1_0lql1"]
 [ext_resource type="Texture2D" uid="uid://csn3quwl25dx8" path="res://Art/Tony.png" id="2_45xcu"]
+[ext_resource type="PackedScene" uid="uid://b2hitfg75m46b" path="res://Scenes/subway_surfer_game.tscn" id="2_ua26s"]
+[ext_resource type="PackedScene" uid="uid://dctolsly4r8uh" path="res://Scenes/point_click_game.tscn" id="3_4vxhd"]
 [ext_resource type="Script" uid="uid://di40gncyjb0k" path="res://Code/main_text.gd" id="3_ua26s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4e5nk"]
@@ -45,3 +47,14 @@ offset_top = 296.0
 offset_right = 804.0
 offset_bottom = 512.0
 text = "..."
+
+[node name="PointAndClickGame" parent="." unique_id=1479434377 instance=ExtResource("3_4vxhd")]
+visible = false
+position = Vector2(563, 282)
+
+[node name="SubwaySurferGame" parent="." unique_id=809947394 instance=ExtResource("2_ua26s")]
+visible = false
+offset_left = 411.0
+offset_top = 119.0
+offset_right = 655.0
+offset_bottom = 413.0

@@ -34,7 +34,6 @@ rotation = 3.1415927
 progress = 397.51
 
 [node name="MobTimer" type="Timer" parent="." unique_id=1279312361]
-autostart = true
 
 [node name="KillZone" type="Area2D" parent="." unique_id=268683219 groups=["KillZone"]]
 
@@ -53,7 +52,7 @@ text = "0"
 [node name="Player" type="Area2D" parent="." unique_id=1482757835]
 position = Vector2(121, 213)
 script = ExtResource("3_dilya")
-speed = 300
+speed = 350
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=752839200]
