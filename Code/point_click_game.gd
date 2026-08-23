@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func spawnFox():
 	if !foxAppeared:
-		$Fuchsi.position = Vector2(randi_range(-256, 256), randi_range(-128, 128))
+		$Fuchsi.position = Vector2(randi_range(-1500, 1500), randi_range(-1000, 1000))
 		foxAppeared = true
 
 func _on_fuchsi_pressed() -> void:

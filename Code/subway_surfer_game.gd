@@ -1,4 +1,4 @@
-extends ColorRect
+extends Node2D
 
 @export var Mob: PackedScene
 var score = 0

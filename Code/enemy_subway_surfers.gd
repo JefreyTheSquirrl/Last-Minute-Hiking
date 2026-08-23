@@ -6,13 +6,15 @@ extends Area2D
 func _ready() -> void:
 	if sprite == 1:
 		$AnimatedSprite2D.animation = "Lamp"
+		$CollisionShape2D.shape.size = Vector2(9, 52)
 	if sprite == 0:
 		$AnimatedSprite2D.animation = "Eliza"
+		$CollisionShape2D.shape.size = Vector2(36, 56)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.y += 330 * delta
+	position.y += 300 * delta
 
 
 func _on_area_entered(area: Area2D) -> void:

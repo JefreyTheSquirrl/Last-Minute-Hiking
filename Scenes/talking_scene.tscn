@@ -3,11 +3,43 @@
 [ext_resource type="Texture2D" uid="uid://bujiprtr1d0lm" path="res://Art/Harrow.png" id="1_0lql1"]
 [ext_resource type="Texture2D" uid="uid://csn3quwl25dx8" path="res://Art/Tony.png" id="2_45xcu"]
 [ext_resource type="PackedScene" uid="uid://b2hitfg75m46b" path="res://Scenes/subway_surfer_game.tscn" id="2_ua26s"]
+[ext_resource type="Texture2D" uid="uid://cmrv7jsepxn4a" path="res://Art/Background1.png" id="2_ujta3"]
 [ext_resource type="PackedScene" uid="uid://dctolsly4r8uh" path="res://Scenes/point_click_game.tscn" id="3_4vxhd"]
+[ext_resource type="Texture2D" uid="uid://bvmtb6jxco7ta" path="res://Art/Background2.png" id="3_klm47"]
 [ext_resource type="Script" uid="uid://di40gncyjb0k" path="res://Code/main_text.gd" id="3_ua26s"]
+[ext_resource type="Texture2D" uid="uid://cm1uls2mknq7c" path="res://Art/Eliza.png" id="4_v3vqk"]
+[ext_resource type="AudioStream" uid="uid://b8pdw1vjr78tp" path="res://Music/2026-08-23 15-52-59.mp3" id="9_klm47"]
+[ext_resource type="Script" uid="uid://b1tpl57rppeoy" path="res://Code/audio_stream_player_2d.gd" id="10_v3vqk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txavq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ujta3")
+}],
+"loop": 1,
+"name": &"City",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_klm47")
+}],
+"loop": 1,
+"name": &"Country",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4e5nk"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_v3vqk")
+}],
+"loop": 1,
+"name": &"Eliza",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_0lql1")
@@ -26,18 +58,23 @@ animations = [{
 }]
 
 [node name="TalkingScene" type="Node2D" unique_id=1790276345]
+scale = Vector2(1.715, 1.715)
 script = ExtResource("3_ua26s")
+
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=1813945073]
+position = Vector2(639, 359)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_txavq")
+animation = &"City"
 
 [node name="Character" type="AnimatedSprite2D" parent="." unique_id=1176466698]
 position = Vector2(1002.99994, 434.99997)
 scale = Vector2(0.12, 0.12)
 sprite_frames = SubResource("SpriteFrames_4e5nk")
-animation = &"Tony"
-
-[node name="Background" type="Sprite2D" parent="." unique_id=1323452321]
+animation = &"Harrow"
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=1503108251]
-color = Color(1, 0.40784314, 0.11764706, 1)
+color = Color(0.56286114, 0.5588126, 1, 1)
 polygon = PackedVector2Array(186, 269, 125, 436, 224, 561, 794, 549, 856, 286, 607, 250)
 
 [node name="Label" type="Label" parent="Polygon2D" unique_id=1580363437]
@@ -50,11 +87,15 @@ text = "..."
 
 [node name="PointAndClickGame" parent="." unique_id=1479434377 instance=ExtResource("3_4vxhd")]
 visible = false
-position = Vector2(563, 282)
+position = Vector2(592.41986, 261.2245)
+scale = Vector2(0.16, 0.16)
 
 [node name="SubwaySurferGame" parent="." unique_id=809947394 instance=ExtResource("2_ua26s")]
 visible = false
-offset_left = 411.0
-offset_top = 119.0
-offset_right = 655.0
-offset_bottom = 413.0
+position = Vector2(342.85715, 128.86298)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=6867505]
+stream = ExtResource("9_klm47")
+volume_db = 10.0
+autoplay = true
+script = ExtResource("10_v3vqk")

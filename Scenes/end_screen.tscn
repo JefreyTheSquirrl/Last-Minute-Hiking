@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cjrj6cbsvw427"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4e5nk"]
+font_size = 64
+
+[node name="EndScreen" type="ColorRect" unique_id=1280023722]
+offset_right = 1983.0
+offset_bottom = 1079.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=1230726401]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 266.0
+offset_right = 1953.0
+offset_bottom = 809.0
+text = "Thanks for playing! 
+Check out my other work on: 
+https://jefreythesquirrl.github.io/JefreyTheWebsite/index.html
+Art by: Schmortie 
+https://www.instagram.com/schmortie666?igsi=Z2Q4ejdmdDB
+4MHZj&utm_source=qr"
+label_settings = SubResource("LabelSettings_4e5nk")

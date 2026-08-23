@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://badwa2t5nleil" path="res://Code/subway_surfer_game.gd" id="1_wervn"]
 [ext_resource type="PackedScene" uid="uid://di51jntj8nycp" path="res://Scenes/enemy_subway_surfers.tscn" id="2_fuixi"]
 [ext_resource type="Script" uid="uid://b5wcafgdwp562" path="res://Code/player.gd" id="3_dilya"]
-[ext_resource type="Texture2D" uid="uid://dbs871aa6cft8" path="res://icon.svg" id="4_n63uh"]
+[ext_resource type="Texture2D" uid="uid://b7t76h6eklecu" path="res://Art/Bürgersteig.png" id="3_n63uh"]
+[ext_resource type="Texture2D" uid="uid://cs2omord8d2q2" path="res://Art/Harrow Schmoll.png" id="5_u1qrb"]
 
 [sub_resource type="Curve2D" id="Curve2D_fuixi"]
 _data = {
@@ -15,15 +16,16 @@ point_count = 3
 size = Vector2(240.155, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txavq"]
-size = Vector2(24, 24)
+size = Vector2(16, 39)
 
-[node name="SubwaySurferGame" type="ColorRect" unique_id=809947394]
-custom_minimum_size = Vector2(0.045, 0)
-offset_right = 244.0
-offset_bottom = 294.0
-color = Color(0, 0.80784315, 1, 1)
+[node name="SubwaySurferGame" type="Node2D" unique_id=31105364]
 script = ExtResource("1_wervn")
 Mob = ExtResource("2_fuixi")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=353982245]
+position = Vector2(128.1, 150.10999)
+scale = Vector2(0.10233872, 0.08488599)
+texture = ExtResource("3_n63uh")
 
 [node name="MobPath" type="Path2D" parent="." unique_id=313200542]
 curve = SubResource("Curve2D_fuixi")
@@ -42,12 +44,12 @@ position = Vector2(122.5, 258)
 shape = SubResource("RectangleShape2D_4e5nk")
 
 [node name="Label" type="Label" parent="." unique_id=2073745388]
-layout_mode = 0
 offset_left = 117.0
 offset_top = 35.0
 offset_right = 127.0
 offset_bottom = 58.0
 text = "0"
+metadata/_edit_use_anchors_ = true
 
 [node name="Player" type="Area2D" parent="." unique_id=1482757835]
 position = Vector2(121, 213)
@@ -56,10 +58,11 @@ speed = 350
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=752839200]
-scale = Vector2(0.234375, 0.234375)
-texture = ExtResource("4_n63uh")
+scale = Vector2(0.019, 0.019)
+texture = ExtResource("5_u1qrb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1931544379]
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_txavq")
 
 [node name="ScoreTimer" type="Timer" parent="." unique_id=1355468148]

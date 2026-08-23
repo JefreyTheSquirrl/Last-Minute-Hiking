@@ -21,6 +21,9 @@ Global="*uid://bkq5g3wm0byy7"
 
 [display]
 
+window/size/viewport_width=1980
+window/size/viewport_height=1080
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

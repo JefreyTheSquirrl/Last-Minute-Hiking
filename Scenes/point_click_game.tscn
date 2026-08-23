@@ -1,25 +1,31 @@
 [gd_scene format=3 uid="uid://dctolsly4r8uh"]
 
-[ext_resource type="Texture2D" uid="uid://cpq1k0bbo88tx" path="res://Art/BackgroundLevel.png" id="1_5unvv"]
+[ext_resource type="Texture2D" uid="uid://l0r73vd7ttdo" path="res://Art/Blätter.png" id="1_5unvv"]
 [ext_resource type="Script" uid="uid://brwtk5owoglgl" path="res://Code/point_click_game.gd" id="2_o54s0"]
-[ext_resource type="Texture2D" uid="uid://dbs871aa6cft8" path="res://icon.svg" id="3_vrhro"]
+[ext_resource type="Texture2D" uid="uid://cl4du6gc875k4" path="res://Art/Fuxi.png" id="3_5unvv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o54s0"]
+font_size = 256
 
 [node name="PointAndClickGame" type="Sprite2D" unique_id=1479434377]
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_5unvv")
 script = ExtResource("2_o54s0")
-metadata/_edit_group_ = true
 
 [node name="Score" type="Label" parent="." unique_id=2073745388]
-offset_left = -5.0000005
-offset_top = -155.35
-offset_right = 4.9999995
-offset_bottom = -132.35
+offset_left = -74.0
+offset_top = -1025.0
+offset_right = 72.0
+offset_bottom = -676.0
 text = "0"
+label_settings = SubResource("LabelSettings_o54s0")
 
 [node name="Fuchsi" type="TextureButton" parent="." unique_id=1145447144]
-scale = Vector2(0.36, 0.36)
-texture_normal = ExtResource("3_vrhro")
+offset_left = -345.0
+offset_top = 6.9999995
+offset_right = 3163.0
+offset_bottom = 2487.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("3_5unvv")
 
 [node name="FuchsiDespawnTimer" type="Timer" parent="." unique_id=873566187]
 wait_time = 1.5

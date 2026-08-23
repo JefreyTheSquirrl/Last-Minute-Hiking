@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://di51jntj8nycp"]
 
 [ext_resource type="Script" uid="uid://dckuxj2bbwa5u" path="res://Code/enemy_subway_surfers.gd" id="1_ommal"]
-[ext_resource type="Texture2D" uid="uid://dbs871aa6cft8" path="res://icon.svg" id="2_52ch7"]
+[ext_resource type="Texture2D" uid="uid://cdf8j5crk4m7t" path="res://Art/Eliza schmoll.png" id="2_52ch7"]
+[ext_resource type="Texture2D" uid="uid://dt0sfskgws5mn" path="res://Art/Lampe.png" id="3_u1mci"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4e5nk"]
 animations = [{
@@ -15,7 +16,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_52ch7")
+"texture": ExtResource("3_u1mci")
 }],
 "loop": 1,
 "name": &"Lamp",
@@ -23,19 +24,21 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_txavq"]
-size = Vector2(57, 56)
+size = Vector2(9.1428585, 52.000004)
 
 [node name="EnemySubwaySurfers" type="Area2D" unique_id=1226795800]
 scale = Vector2(0.875, 0.875)
 script = ExtResource("1_ommal")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1670103885]
-scale = Vector2(0.5, 0.5)
+position = Vector2(2.285716, -4.5714283)
+scale = Vector2(0.024, 0.024)
 sprite_frames = SubResource("SpriteFrames_4e5nk")
-animation = &"Eliza"
+animation = &"Lamp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1499551290]
-position = Vector2(0.5, 0)
+position = Vector2(3.4285707, -6.5714245)
+scale = Vector2(0.99999964, 0.99999964)
 shape = SubResource("RectangleShape2D_txavq")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
